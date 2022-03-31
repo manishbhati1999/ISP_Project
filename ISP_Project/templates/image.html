@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+<body>
+    <div class="container">
+      <div class="navigation">
+         <ul>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="pulse"></ion-icon></span>
+                    <span class="title">REAL TIME DASHBOARD</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/index.html">
+                    <span class="icon"><ion-icon name="home"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a> 
+             </li>
+             <li>
+                <a href="image.html">
+                    <span class="icon"><ion-icon name="albums"></ion-icon></span>
+                    <span class="title">Images</span>
+                </a> 
+             </li>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="aperture"></ion-icon></span>
+                    <span class="title">Sensors</span>
+                </a> 
+             </li>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="analytics"></ion-icon></span>
+                    <span class="title">Change Detection</span>
+                </a> 
+             </li>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="more"></ion-icon></span>
+                    <span class="title2">Nodes</span>
+                    <span class="icon"><ion-icon name="arrow-dropdown"></ion-icon></span>
+                </a>
+             </li>
+             <li>
+                <a href="/index.html">
+                    <span class="title1">Node 1</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/node2.html">
+                    <span class="title1">Node 2</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/node3.html">
+                    <span class="title1">Node 3</span>
+                </a> 
+           
+             </li>
+             
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out"></ion-icon></span>
+                    <span class="title">Sign Out </span>
+                </a> 
+             </li>
+         </ul> 
+      </div>
+      
+      <!-- main -->
+      <div class="main">
+          <div class="topbar">
+              <div class="toggle">
+                <ion-icon name="menu"></ion-icon>
+              </div>
+              <!-- search -->
+              <div class="search">
+                  <label>
+                      <input type="text" placeholder="Search here">
+                      <ion-icon name="search"></ion-icon>
+                  </label>
+              </div>
+              <!-- UserImg -->
+              <div class="user">
+                  <img src="../static/userImg.jpg">
+              </div>
+          </div>
+
+          <div class="slider">
+			<div class="img-box">
+				<img src="../static/a.jpg" class="slider-img">
+			</div>
+
+			<button class="btn" onclick="prev()">Prev</button>
+			<button class="btn" onclick="next()">Next</button>
+		</div>
+
+          
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+ <!--Gauge  -->
+ <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+
+
+
+<script>
+        
+    // MenuToggle
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    
+    let main = document.querySelector('.main');
+
+    toggle.onclick = function(){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+    // add hovered class in selected list item
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered')
+    }
+    list.forEach((item) =>
+        item.addEventListener('mouseover',activeLink));
+
+    // 'js/mian.js'
+
+    var slider_img = document.querySelector('.slider-img');
+    var images = ['../static/a.jpg', '../static/b.jpg', '../static/c.jpg', '../static/d.jpg', '../static/e.jpg'];
+    var i = 0;
+
+    function prev(){
+	if(i <= 0) i = images.length;	
+	i--;
+	return setImg();			 
+    }
+
+    function next(){
+	if(i >= images.length-1) i = -1;
+	i++;
+	return setImg();			 
+    }
+
+    function setImg(){
+	return slider_img.setAttribute('src', "images/"+images[i]);
+	
+    }
+</script>
+</body>
+</html>

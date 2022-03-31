@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+<body>
+    <div class="container">
+      <div class="navigation">
+         <ul>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="pulse"></ion-icon></span>
+                    <span class="title">REAL TIME DASHBOARD</span>
+                </a> 
+             </li>
+             <li>
+                <a href="index.html">
+                    <span class="icon"><ion-icon name="home"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/image.html">
+                    <span class="icon"><ion-icon name="albums"></ion-icon></span>
+                    <span class="title">Images</span>
+                </a> 
+             </li>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="aperture"></ion-icon></span>
+                    <span class="title">Sensors</span>
+                </a> 
+             </li>
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="analytics"></ion-icon></span>
+                    <span class="title">Change Detection</span>
+                </a> 
+             </li>
+             
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="more"></ion-icon></span>
+                    <span class="title2">Nodes</span>
+                    <span class="icon"><ion-icon name="arrow-dropdown"></ion-icon></span>
+                </a>
+             </li>
+             <li>
+                <a href="index.html">
+                    <span class="title1">Node 1</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/node2.html">
+                    <span class="title1">Node 2</span>
+                </a> 
+             </li>
+             <li>
+                <a href="/node3.html">
+                    <span class="title1">Node 3</span>
+                </a> 
+           
+             </li>
+             
+             
+             <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out"></ion-icon></span>
+                    <span class="title">Sign Out </span>
+                </a> 
+             </li>
+         </ul> 
+      </div>
+      
+      <!-- main -->
+      <div class="main">
+          <div class="topbar">
+              <div class="toggle">
+                <ion-icon name="menu"></ion-icon>
+              </div>
+              
+              <!-- search -->
+              <div class="search">
+                  <label>
+                      <input type="text" placeholder="Search here">
+                      <ion-icon name="search"></ion-icon>
+                  </label>
+              </div>
+              
+              <!-- UserImg -->
+              <div class="user">
+                  <img src="../static/userImg.jpg">
+              </div>
+          </div>
+
+          <!-- cards -->
+          <div class="cardBox">
+              <div class="card">
+                <div>
+                    <div class="numbers">Temperature</div>
+                    <div class="cardName1"></div>
+                </div> 
+                <div class="iconBx">
+                    <ion-icon name="thermometer"></ion-icon>
+                </div> 
+              </div>
+              <div class="card">
+                <div>
+                    <div class="numbers">Humidity</div>
+                    <div class="cardName2"></div>
+                </div> 
+                <div class="iconBx">
+                    <ion-icon name="thermometer"></ion-icon>
+                </div> 
+              </div>
+              <div class="card">
+                <div>
+                    <div class="numbers">CO2</div>
+                    <div class="cardName3"></div>
+                </div> 
+                <div class="iconBx">
+                    <ion-icon name="speedometer"></ion-icon>
+                </div> 
+              </div>
+              <div class="card">
+                <div>
+                    <div class="numbers">MQTT</div>
+                    <div class="cardName4"></div>
+                </div> 
+                <div class="iconBx">
+                    <ion-icon name="speedometer"></ion-icon>
+                </div> 
+              </div>
+          </div>
+
+          <!-- Add Real Time Graphs-->
+          <div class="details">
+          <div class="graphBox1">
+            <div class="box1">
+                <div class="col-sm-6 col-md-6">
+                <div class="container-fluid" id="data-temperature">
+                </div>
+                </div>
+           </div>
+          </div>
+
+          <div class="graphBox2">
+            <div class="box2">
+                <div class="col-sm-6 col-md-6">
+                <div class="container-fluid1" id="data-humidity">
+                </div>
+                </div>
+           </div>
+          </div>
+
+          <div class="graphBox3">
+            <div class="box3">
+                <div class="col-sm-6 col-md-6">
+                <div class="container-fluid2" id="data-co2">
+                </div>
+                </div>
+           </div>
+          </div>
+
+          <div class="graphBox4">
+            <div class="box4">
+                <div class="col-sm-6 col-md-6">
+                <div class="container-fluid3" id="data-mqtt">
+                </div>
+                </div>
+           </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <!--High CHART LIVE  -->
+ <script src="http://code.highcharts.com/highcharts.js"></script>
+ <script src="http://code.highcharts.com/highcharts-more.js"></script>
+ <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+ <!--Gauge  -->
+ <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+
+
+
+<script>
+
+        var chartTemperature;
+        var chartHumidity;
+        var chartCO2;
+        var chartMQQT;
+
+        function requestData()
+        {
+            // Ajax call to get the Data from Flask
+            var requests = $.get('/data');
+
+            var tm = requests.done(function (result)
+            {
+                // Temperature
+                var seriesTemperature = chartTemperature.series[0],
+                    shiftTemperature = seriesTemperature.data.length > 40;
+
+                // Humidity
+                var seriesHumidity = chartHumidity.series[0],
+                    shiftHumidity = seriesHumidity.data.length > 40;
+
+                // CO2
+                var seriesCO2 = chartCO2.series[0],
+                    shiftCO2 = seriesCO2.data.length > 40;
+
+                // MQTT
+                var seriesMQTT = chartMQQT.series[0],
+                    shiftMQTT = seriesMQTT.data.length > 40;
+
+
+
+                // Add the Point
+                // Time Temperature
+                var data1 = [];
+                data1.push(result[0]);
+                data1.push(result[1]);
+
+
+                // Add the Point
+                // Time Humidity
+                var data2 = [];
+                data2.push(result[0]);
+                data2.push(result[2]);
+
+                // Add the Point
+                // Time CO2
+                var data3 = [];
+                data3.push(result[0]);
+                data3.push(result[3]);
+
+                // Add the Point
+                // Time MQTT
+                var data4 = [];
+                data4.push(result[0]);
+                data4.push(result[4]);
+
+
+
+
+                chartTemperature.series[0].addPoint(data1, true, shiftTemperature);
+                chartHumidity.series[0].addPoint(data2, true, shiftHumidity);
+                chartCO2.series[0].addPoint(data3, true, shiftCO2);
+                chartMQQT.series[0].addPoint(data4, true, shiftMQTT);
+                $(".cardName1").text("");
+                $(".cardName1").text("" +  Math.round(data1[1]) );
+
+                $(".cardName2").text("");
+                $(".cardName2").text("" +  Math.round(data2[1]) );
+
+                $(".cardName3").text("");
+                $(".cardName3").text("" +  Math.round(data3[1]) );
+
+                $(".cardName4").text("");
+                $(".cardName4").text("" +  Math.round(data4[1]) );
+
+                // call it again after TWO second
+                setTimeout(requestData, 2000);
+
+            });
+        }
+
+        $(document).ready(function()
+        {
+            // --------------Chart 1 ----------------------------
+            chartTemperature = new Highcharts.Chart({
+                chart:
+                    {
+                    renderTo: 'data-temperature',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                            }
+                    },
+
+                title:
+                    {
+                    text: 'Temperature'
+                    },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                        },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                            }
+                         },
+                
+                series: [{
+                    color : '#0078FF',
+                    lineColor: '#303030',
+                    name: 'Temperature',
+                    data: []    
+                }]
+            });
+            // --------------Chart 2 - -----------------
+
+            chartHumidity = new Highcharts.Chart({
+                chart:
+                    {
+                        renderTo: 'data-humidity',
+                        defaultSeriesType: 'area',
+                        events: {
+                            load: requestData
+                        }
+                    },
+                title:
+                    {
+                        text: 'Humidity'
+                    },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                    }
+                },
+                series: [{
+                    color: '#0078FF',
+                    lineColor: '#303030',
+                    name: 'Humidity',
+                    data: []
+                }]
+            });
+
+             // --------------Chart 3 ----------------------------
+             
+             chartCO2 = new Highcharts.Chart({
+                chart:
+                    {
+                    renderTo: 'data-co2',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                            }
+                    },
+                title:
+                    {
+                    text: 'CO2'
+                    },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                        },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                            }
+                         },
+                series: [{
+                    color : '#0078FF',
+                    lineColor: '#303030',
+                    name: 'CO2',
+                    data: []
+                }]
+            });
+
+             // --------------Chart 4 ----------------------------
+             chartMQQT = new Highcharts.Chart({
+                chart:
+                    {
+                    renderTo: 'data-mqtt',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                            }
+                    },
+                title:
+                    {
+                    text: 'MQTT'
+                    },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                        },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                            }
+                         },
+                series: [{
+                    color : '#0078FF',
+                    lineColor: '#303030',
+                    name: 'MQTT',
+                    data: []
+                }]
+            });
+      
+        });
+        
+    // MenuToggle
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    
+    let main = document.querySelector('.main');
+
+    toggle.onclick = function(){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+    type="text/javascript">
+    $(document).ready(function(){
+    //jquery for toggle sub menus
+    $('.Nodes').click(function(){
+        $(this).next('.title1').slideToggle();
+    });
+    });
+
+    // add hovered class in selected list item
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered')
+    }
+    list.forEach((item) =>
+        item.addEventListener('mouseover',activeLink));
+</script>
+</body>
+</html>
